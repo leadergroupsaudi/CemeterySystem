@@ -32,6 +32,7 @@ namespace CemeterySystem.Volunteers
                     NameAr = volunteer.NameAr
                 };
 
+                // map VolunteerOrderInputs to VolunteerOrders
                 volunteerEntity.VolunteerOrders = ObjectMapper.Map<List<VolunteerOrder>>(volunteer.VolunteerOrderInputs);
                 volunteerEntity.VolunteerOrders.ForEach(order => order.VolunteerId = volunteerEntity.Id);
 
@@ -44,6 +45,7 @@ namespace CemeterySystem.Volunteers
                 throw new UserFriendlyException("You must agree to the terms and conditions");
             }
         }
+    }
 
     }
 }

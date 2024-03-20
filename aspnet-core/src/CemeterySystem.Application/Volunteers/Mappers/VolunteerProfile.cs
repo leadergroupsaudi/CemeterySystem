@@ -10,8 +10,8 @@ namespace CemeterySystem.Volunteers.Mappers
         public VolunteerProfile()
         {
             CreateMap<VolunteerOrderInput, VolunteerOrder>()
-            .ForMember(x => x.CemeteryId, opt => opt.MapFrom(y => y.CemeratyId))
-            .ForMember(z => z.VolunteerId, opt => opt.Ignore());
+            .ForMember(dest => dest.CemeteryId, opt => opt.MapFrom(src => src.CemeratyId))
+            .ForMember(dest => dest.VolunteerId, opt => opt.Ignore());
 
             CreateMap<VolunteerInput, Volunteer>();
         }
