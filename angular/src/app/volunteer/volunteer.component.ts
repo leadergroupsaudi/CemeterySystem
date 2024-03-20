@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponentBase } from '@shared/app-component-base';
-import { LookUpsServiceProxy, VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
+import { LookUpsServiceProxy, RegionDto, VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
 
 @Component({
   selector: 'app-volunteer',
@@ -9,7 +9,7 @@ import { LookUpsServiceProxy, VolunteerServiceProxy } from '@shared/service-prox
   styleUrl: './volunteer.component.css'
 })
 export class VolunteerComponent extends AppComponentBase implements OnInit {
-  regions: any[] = [];
+  regions: RegionDto[] = [];
   constructor(injector: Injector,
     private VolunteerService: VolunteerServiceProxy,
     private LookUpService: LookUpsServiceProxy) {
@@ -17,7 +17,8 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.VolunteerService.createVolunteer
-    this.LookUpService.getRegions()
+    this.LookUpService.getRegions().subscribe((result: RegionDto[]) => {
+      this.regions = result;
+    })
   }
 }
