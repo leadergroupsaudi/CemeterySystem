@@ -10,14 +10,10 @@ namespace CemeterySystem.Entities
         public string NameAr { get; set; }
         public string NameEn { get; set; }
 
-        #region Issue
         public int CityId { get; set; }
         public City City { get; set; }
-        public int? DistrictId { get; set; }   //Will this allow the user to add a district
-                                               //that doesn't belong to the city
+        public int? DistrictId { get; set; }  
         public District District { get; set; }
-
-        #endregion
 
         public string Phone { get; set; }
         public TimeSpan OpenTime { get; set; }
