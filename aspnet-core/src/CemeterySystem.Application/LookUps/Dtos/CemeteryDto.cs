@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Entities;
 
-namespace CemeterySystem.Volunteers.Dto
+namespace CemeterySystem.LookUps.Dto
 {
     public class CemeteryDto : EntityDto<Guid>
     {
-        public string NameAr { get; set; } //
+        public string NameAr { get; set; }
     }
 }

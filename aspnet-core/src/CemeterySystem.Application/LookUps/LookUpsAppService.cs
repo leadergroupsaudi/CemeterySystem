@@ -1,6 +1,6 @@
 ﻿using Abp.Domain.Repositories;
 using CemeterySystem.Entities;
-using CemeterySystem.Volunteers.Dto;
+using CemeterySystem.LookUps.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
