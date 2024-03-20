@@ -1,4 +1,4 @@
-﻿using CemeterySystem.Volunteers.Dto;
+﻿using CemeterySystem.LookUps.Dto;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CemeterySystem.Entities;
-using CemeterySystem.Volunteers.Dto;
+using CemeterySystem.LookUps.Dto;
 
 namespace CemeterySystem.LookUps.Mappers
 {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 
-namespace CemeterySystem.Volunteers.Dto
+namespace CemeterySystem.LookUps.Dto
 {
     public class RegionDto : EntityDto
     {
