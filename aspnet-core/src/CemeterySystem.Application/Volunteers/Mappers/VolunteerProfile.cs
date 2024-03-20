@@ -9,12 +9,11 @@ namespace CemeterySystem.Volunteers.Mappers
     {
         public VolunteerProfile()
         {
-            CreateMap<VolunteerInput, Volunteer>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()));
-
             CreateMap<VolunteerOrderInput, VolunteerOrder>()
-                .ForMember(dest => dest.CemeteryId, opt => opt.MapFrom(src => src.CemeratyId))
-                .ForMember(dest => dest.VolunteerId, opt => opt.Ignore()); // We will handle this manually
+            .ForMember(x => x.CemeteryId, opt => opt.MapFrom(y => y.CemeratyId))
+            .ForMember(z => z.VolunteerId, opt => opt.Ignore());
+
+            CreateMap<VolunteerInput, Volunteer>();
         }
     }
 }
