@@ -9,8 +9,6 @@ namespace CemeterySystem.Volunteers.Mappers
     {
         public VolunteerProfile()
         {
-            //CreateMap<VolunteerInput, Volunteer>().ReverseMap();
-
             CreateMap<VolunteerInput, Volunteer>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()));
 
