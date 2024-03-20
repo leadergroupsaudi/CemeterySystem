@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CemeterySystem.Entities;
+using CemeterySystem.Volunteers.Dto;
 
 namespace CemeterySystem.LookUps.Mappers
 {
@@ -11,7 +8,10 @@ namespace CemeterySystem.LookUps.Mappers
     {
         public LookUpProfile()
         {
-            
+            CreateMap<Region, RegionDto>().ReverseMap();
+            CreateMap<City, CityDto>().ReverseMap();
+            CreateMap<District, DistrictDto>().ReverseMap();
+            CreateMap<Cemetery, CemeteryDto>().ReverseMap();
         }
     }
 }
