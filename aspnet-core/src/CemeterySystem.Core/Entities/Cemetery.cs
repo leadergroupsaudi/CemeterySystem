@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Abp.Domain.Entities;
-using static Castle.MicroKernel.ModelBuilder.Descriptors.InterceptorDescriptor;
 
 namespace CemeterySystem.Entities
 {
