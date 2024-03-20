@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponentBase } from '@shared/app-component-base';
-import { VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
+import { LookUpsServiceProxy, VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
 
 @Component({
   selector: 'app-volunteer',
@@ -9,11 +9,15 @@ import { VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
   styleUrl: './volunteer.component.css'
 })
 export class VolunteerComponent extends AppComponentBase implements OnInit {
-
-  constructor(injector: Injector, private VolunteerService: VolunteerServiceProxy) {
+  regions: any[] = [];
+  constructor(injector: Injector,
+    private VolunteerService: VolunteerServiceProxy,
+    private LookUpService: LookUpsServiceProxy) {
     super(injector);
   }
+
   ngOnInit(): void {
-this.VolunteerService.createVolunteer
+    // this.VolunteerService.createVolunteer
+    this.LookUpService.getRegions()
   }
 }
