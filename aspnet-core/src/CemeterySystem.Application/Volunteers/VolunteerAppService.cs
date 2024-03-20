@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.UI;
+using AutoMapper;
 using CemeterySystem.Entities;
 using CemeterySystem.Volunteers.Dto;
 using System;
@@ -19,33 +20,59 @@ namespace CemeterySystem.Volunteers
             this.volunteerRepository = volunteerRepository;
         }
 
-        public async Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool isAcceptedTermsAndConditions)
+        //public async Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool isAcceptedTermsAndConditions)
+        //{
+        //    if (isAcceptedTermsAndConditions)
+        //    {
+        //        Volunteer volunteerEntity = new Volunteer()
+        //        {
+        //            Id = Guid.NewGuid(),
+        //            Phone = volunteer.Phone,
+        //            DistrictId = volunteer.DistrictId,
+        //            NameAr = volunteer.NameAr
+        //        };
+
+
+        //        volunteerEntity.VolunteerOrders = volunteer.VolunteerOrderInputs.Select(volunteer => new VolunteerOrder
+        //        {
+        //            CemeteryId = volunteer.CemeratyId,
+        //            VolunteerId = volunteerEntity.Id
+        //        }).ToList();
+
+        //        Guid volunteerId = await volunteerRepository.InsertAndGetIdAsync(volunteerEntity);
+        //        volunteer.Id = volunteerId;
+        //        return volunteer;
+        //    }
+        //    else
+        //    {
+        //        throw new UserFriendlyException("You must agree to the terms and conditions");
+        //    }
+        //}
+
+        public async Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteerInput, bool isAcceptedTermsAndConditions)
         {
             if (isAcceptedTermsAndConditions)
             {
-                Volunteer volunteerEntity = new Volunteer()
+                // Map VolunteerInput to Volunteer
+                var volunteerEntity = ObjectMapper.Map<Volunteer>(volunteerInput);
+
+                // Set VolunteerId for VolunteerOrders
+                foreach (var volunteerOrder in volunteerEntity.VolunteerOrders)
                 {
-                    Id = Guid.NewGuid(),
-                    Phone = volunteer.Phone,
-                    DistrictId = volunteer.DistrictId,
-                    NameAr = volunteer.NameAr
-                };
+                    volunteerOrder.VolunteerId = volunteerEntity.Id;
+                }
 
-
-                volunteerEntity.VolunteerOrders = volunteer.VolunteerOrderInputs.Select(volunteer => new VolunteerOrder
-                {
-                    CemeteryId = volunteer.CemeratyId,
-                    VolunteerId = volunteerEntity.Id
-                }).ToList();
-
+                // Insert the entity into the repository
                 Guid volunteerId = await volunteerRepository.InsertAndGetIdAsync(volunteerEntity);
-                volunteer.Id = volunteerId;
-                return volunteer;
+                volunteerInput.Id = volunteerId;
+
+                return volunteerInput;
             }
             else
             {
                 throw new UserFriendlyException("You must agree to the terms and conditions");
             }
         }
+
     }
 }
