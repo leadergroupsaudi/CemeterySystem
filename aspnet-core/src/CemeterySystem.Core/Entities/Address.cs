@@ -1,5 +1,5 @@
-﻿using Abp.Domain.Entities;
-using System;
+﻿using System;
+using Abp.Domain.Entities;
 
 namespace CemeterySystem.Entities
 {
