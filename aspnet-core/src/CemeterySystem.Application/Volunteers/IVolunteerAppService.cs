@@ -9,6 +9,6 @@ namespace CemeterySystem.Volunteers
 {
     public interface IVolunteerAppService
     {
-        Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool termsAndConditions);
+        Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool isAcceptedTermsAndConditions);
     }
 }

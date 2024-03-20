@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Repositories;
+using Abp.UI;
 using CemeterySystem.Entities;
 using CemeterySystem.Volunteers.Dto;
 using System;
@@ -18,9 +19,33 @@ namespace CemeterySystem.Volunteers
             this.volunteerRepository = volunteerRepository;
         }
 
-        public Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool termsAndConditions)
+        public async Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool isAcceptedTermsAndConditions)
         {
-            throw new NotImplementedException();
+            if (isAcceptedTermsAndConditions)
+            {
+                Volunteer volunteerEntity = new Volunteer()
+                {
+                    Id = Guid.NewGuid(),
+                    Phone = volunteer.Phone,
+                    DistrictId = volunteer.DistrictId,
+                    NameAr = volunteer.NameAr
+                };
+
+
+                volunteerEntity.VolunteerOrders = volunteer.VolunteerOrderInputs.Select(volunteer => new VolunteerOrder
+                {
+                    CemeteryId = volunteer.CemeratyId,
+                    VolunteerId = volunteerEntity.Id
+                }).ToList();
+
+                Guid volunteerId = await volunteerRepository.InsertAndGetIdAsync(volunteerEntity);
+                volunteer.Id = volunteerId;
+                return volunteer;
+            }
+            else
+            {
+                throw new UserFriendlyException("You must agree to the terms and conditions");
+            }
         }
     }
 }
