@@ -1,8 +1,10 @@
 ﻿using Abp.Domain.Repositories;
 using CemeterySystem.Entities;
 using CemeterySystem.Volunteers.Dto;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CemeterySystem.LookUps
@@ -25,24 +27,32 @@ namespace CemeterySystem.LookUps
             this.districtRepository = districtRepository;
             this.cemeteryRepository = cemeteryRepository;
         }
-        public Task<List<CemeteryDto>> GetCemeteries(int cityId)
+        public async Task<List<RegionDto>> GetRegions()
         {
-            throw new NotImplementedException();
+            var query = await regionRepository.GetAll().ToListAsync();
+            var result = ObjectMapper.Map<List<RegionDto>>(query);
+            return result;
         }
 
-        public Task<List<CityDto>> GetCities(int regionId)
+        public async Task<List<CityDto>> GetCities(int regionId)
         {
-            throw new NotImplementedException();
+            var query = await cityRepository.GetAll().Where(city => city.RegionId == regionId).ToListAsync();
+            var result = ObjectMapper.Map<List<CityDto>>(query);
+            return result;
         }
 
-        public Task<List<DistrictDto>> GetDistricts(int cityId)
+        public async Task<List<DistrictDto>> GetDistricts(int cityId)
         {
-            throw new NotImplementedException();
+            var query = await districtRepository.GetAll().Where(district => district.CityId == cityId).ToListAsync();
+            var result = ObjectMapper.Map<List<DistrictDto>>(query);
+            return result;
         }
 
-        public Task<List<RegionDto>> GetRegions()
+        public async Task<List<CemeteryDto>> GetCemeteries(int cityId)
         {
-            throw new NotImplementedException();
+            var query = await cemeteryRepository.GetAll().Where(cemetery => cemetery.CityId == cityId).ToListAsync();
+            var result = ObjectMapper.Map<List<CemeteryDto>>(query);
+            return result;
         }
     }
 }
