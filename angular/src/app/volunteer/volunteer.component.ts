@@ -21,4 +21,15 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
       this.regions = result;
     })
   }
+  public areaList: Array<string> = [
+    "Boston",
+    "Chicago",
+    "Houston",
+    "Los Angeles",
+    "Miami",
+    "New York",
+    "Philadelphia",
+    "San Francisco",
+    "Seattle",
+  ];
 }

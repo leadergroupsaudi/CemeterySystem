@@ -3,3 +3,34 @@
 <div *ngFor="let region of regions">
   {{ region.nameAr }}
 </div>
+
+<div class="food-demo card-container">
+  <div class="k-card custom-card">
+    <div class="card-row">
+      <div class="card-column">
+        <h4 class="k-h4">Time to order food</h4>
+        <div class="component-container">
+          <!-- <kendo-label text="Find restaurants in your area"> -->
+            <kendo-dropdownlist [data]="areaList"></kendo-dropdownlist>
+          <!-- </kendo-label> -->
+        </div>
+        <div class="skeleton-container top">
+          <div class="k-skeleton skeleton-box-small"></div>
+          <div class="k-skeleton skeleton-box-large"></div>
+        </div>
+        <div class="skeleton-container bottom">
+          <div class="k-skeleton skeleton-box-medium"></div>
+          <div class="k-skeleton skeleton-box-medium"></div>
+        </div>
+      </div>
+      <div class="card-column image-container">
+        <div class="k-skeleton skeleton-image">
+          <span class="k-icon k-font-icon k-i-image"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="k-skeleton skeleton-box-half"></div>
+    </div>
+  </div>
+</div>

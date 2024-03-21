@@ -18,6 +18,12 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 
 import { RootComponent } from './root.component';
 import { AppInitializer } from './app-initializer';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+
+
+
 
 export function getCurrentLanguage(): string {
   if (abp.localization.currentLanguage.name) {
@@ -40,6 +46,9 @@ export function getCurrentLanguage(): string {
     TabsModule.forRoot(),
     ServiceProxyModule,
     RootRoutingModule,
+    DropDownsModule,
+    ButtonsModule,
+    DialogsModule,
   ],
   declarations: [RootComponent],
   providers: [

@@ -21,7 +21,11 @@
       "@shared/*": [ "./shared/*" ],
       "@node_modules/*": [ "../node_modules/*" ],
       "@angular/*": ["../node_modules/@angular/*"],
-    }
+    },
+    "types": [
+      "@angular/localize",
+      "node"
+    ]
   },
   "files": [
     "main.ts",
