@@ -1,31 +1,7 @@
-// import { Component, Injector, OnInit } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { AppComponentBase } from '@shared/app-component-base';
-// import { LookUpsServiceProxy, RegionDto, VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
-
-// @Component({
-//   selector: 'app-volunteer',
-//   templateUrl: './volunteer.component.html',
-//   styleUrl: './volunteer.component.css'
-// })
-// export class VolunteerComponent extends AppComponentBase implements OnInit {
-//   regions: RegionDto[] = [];
-//   constructor(injector: Injector,
-//     private VolunteerService: VolunteerServiceProxy,
-//     private LookUpService: LookUpsServiceProxy) {
-//     super(injector);
-//   }
-  
-//   ngOnInit(): void {
-//     this.LookUpService.getRegions().subscribe((result: RegionDto[]) => {
-//       this.regions = result;
-//     })
-//   }
-// }
-
 import { Component, Injector, OnInit } from '@angular/core';
+import { guid } from '@progress/kendo-angular-common';
 import { AppComponentBase } from '@shared/app-component-base';
-import { CityDto, LookUpsServiceProxy, RegionDto, VolunteerServiceProxy,DistrictDto } from '@shared/service-proxies/service-proxies';
+import { CityDto, LookUpsServiceProxy, RegionDto, VolunteerServiceProxy, DistrictDto } from '@shared/service-proxies/service-proxies';
 
 @Component({
   selector: 'app-volunteer',
@@ -35,7 +11,7 @@ import { CityDto, LookUpsServiceProxy, RegionDto, VolunteerServiceProxy,District
 export class VolunteerComponent extends AppComponentBase implements OnInit {
   regions: RegionDto[] = [];
   cities: CityDto[] = [];
-  districts: DistrictDto[]=[];
+  districts: DistrictDto[] = [];
   selectedRegion: number;
   selectedCity: number;
   selectedDistrict: number;
@@ -49,11 +25,15 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadRegions();
+  }
+
+  loadRegions(): void {
     this.lookUpService.getRegions().subscribe((result: RegionDto[]) => {
       this.regions = result;
       if (this.regions.length > 0) {
         this.selectedRegion = this.regions[0].id;
-        this.loadCities(this.selectedRegion);
+        this.onRegionChange(); // Load cities for the first region
       }
     });
   }
@@ -65,14 +45,18 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   loadCities(regionId: number): void {
     this.lookUpService.getCities(regionId).subscribe((result: CityDto[]) => {
       this.cities = result;
-      // Clear districts when cities change
-      this.districts = [];
+      this.selectedCity = null; // Reset selected city
+      this.districts = []; // Clear districts
     });
   }
-  loadDistrictsFromCity(cityId: number): void {
+
+  onCityChange(): void {
+    this.loadDistricts(this.selectedCity);
+  }
+
+  loadDistricts(cityId: number): void {
     this.lookUpService.getDistricts(cityId).subscribe((result: DistrictDto[]) => {
       this.districts = result;
     });
   }
 }
-

@@ -1,57 +1,23 @@
-<!-- 
 
-<div class="container">
-  <h2>Volunteer Registration</h2>
-  
-  <div class="form-group">
-    <label for="regionSelect">Select Region:</label>
-
-    <kendo-dropdownlist
-        [data]="regions"
-        textField="nameAr"
-        valueField="id"
-      >
-      </kendo-dropdownlist>
-  </div>
-  
-</div>
- -->
  <div class="container">
-  <h2>Volunteer Registration</h2>
-  
-  <!-- Region Dropdown -->
   <div class="form-group">
-    <label for="regionSelect">Select Region:</label>
-    <kendo-dropdownlist
-      id="regionSelect"
-      [data]="regions"
-      [textField]="'nameAr'"
-      [valueField]="'id'"
-    >
-    </kendo-dropdownlist>
-  </div>
-  
-  <!-- City Dropdown -->
-  <div class="form-group" *ngIf="selectedRegion">
-    <label for="citySelect">Select City:</label>
-    <kendo-dropdownlist
-      id="citySelect"
-      [data]="cities"
-      [textField]="'nameAr'"
-      [valueField]="'id'"
-    >
-    </kendo-dropdownlist>
+    <label for="regionSelect">Region:</label>
+    <select id="regionSelect" class="form-control" [(ngModel)]="selectedRegion" (change)="onRegionChange()">
+      <option *ngFor="let region of regions" [value]="region.id">{{ region.nameAr }}</option>
+    </select>
   </div>
 
-  <!-- District Dropdown -->
-  <div class="form-group" *ngIf="loadCities">
-    <label for="districtSelect">Select District:</label>
-    <kendo-dropdownlist
-      id="districtSelect"
-      [data]="districts"
-      [textField]="'nameAr'"
-      [valueField]="'id'"
-    >
-    </kendo-dropdownlist>
+  <div class="form-group">
+    <label for="citySelect">City:</label>
+    <select id="citySelect" class="form-control" [(ngModel)]="selectedCity" (change)="onCityChange()">
+      <option *ngFor="let city of cities" [value]="city.id">{{ city.nameAr }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="districtSelect">District:</label>
+    <select id="districtSelect" class="form-control" [(ngModel)]="selectedDistrict">
+      <option *ngFor="let district of districts" [value]="district.id">{{ district.nameAr }}</option>
+    </select>
   </div>
 </div>
