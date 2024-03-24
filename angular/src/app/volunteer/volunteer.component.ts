@@ -154,27 +154,6 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
     console.log(this.cemeteryObjects);
   }
 
-  // addVolunteer(): void {
-  //   console.log(this.selectedDistrict.id);
-  //   const volunteerData = new VolunteerInput();
-
-  //   volunteerData.nameAr = this.volunteerName;
-  //   volunteerData.phone = this.volunteerPhoneNumber;
-  //   volunteerData.districtId = this.selectedDistrict.id;
-
-  //   const volunteerOrderInputs: VolunteerOrderInput[] = [];
-  //   for (const cemeteryObject of this.cemeteryObjects) {
-  //     const volunteerOrderInput = new VolunteerOrderInput();
-  //     volunteerOrderInput.cemeratyId = cemeteryObject.cemeteryId;
-  //     volunteerOrderInputs.push(volunteerOrderInput);
-  //   }
-  //   volunteerData.volunteerOrderInputs = volunteerOrderInputs;
-
-  //   console.log(volunteerData);
-  //   this.VolunteerService.createVolunteer(true, volunteerData).subscribe(() => {
-  //   });
-  // }
-
 }
 
 
