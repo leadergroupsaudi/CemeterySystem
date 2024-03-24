@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-6 example-col">
-  <kendo-floatinglabel text="Name">
+  <kendo-floatinglabel text="اسم المتطوع">
     <kendo-textbox
       [style.width.px]="200"
       [clearButton]="true"
@@ -9,7 +9,7 @@
 </div>
 
 <div class="col-xs-12 col-sm-6 example-col">
-  <kendo-floatinglabel text="Phone Number">
+  <kendo-floatinglabel text="رقم الهاتف">
     <kendo-textbox
       [style.width.px]="200"
       [clearButton]="true"
@@ -21,7 +21,7 @@
 <div class="container-fluid example-wrapper">
   <div class="row">
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>Region:</p>
+      <p>المنطقة</p>
       <kendo-dropdownlist
         [data]="volunteerRegions"
         [defaultItem]="defaultVolunteerRegion"
@@ -32,7 +32,7 @@
       ></kendo-dropdownlist>
     </div>
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>City:</p>
+      <p>المدينة</p>
       <kendo-dropdownlist
         [data]="volunteerCities"
         [disabled]="isDisabledVolunteerCity"
@@ -44,7 +44,7 @@
       ></kendo-dropdownlist>
     </div>
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>District:</p>
+      <p>الحي</p>
       <kendo-dropdownlist
         [data]="volunteerDistricts"
         [defaultItem]="defaultVolunteerDistrict"
@@ -61,7 +61,7 @@
 <div class="container-fluid example-wrapper">
   <div class="row">
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>Region:</p>
+      <p>المنطقة</p>
       <kendo-dropdownlist
         [data]="cemeteryRegions"
         [defaultItem]="defaultCemeteryRegion"
@@ -72,7 +72,7 @@
       ></kendo-dropdownlist>
     </div>
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>City:</p>
+      <p>المدينة</p>
       <kendo-dropdownlist
         [data]="cemeteryCities"
         [disabled]="isDisabledCemeteryCity"
@@ -84,7 +84,7 @@
       ></kendo-dropdownlist>
     </div>
     <div class="col-xs-12 col-sm-4 example-col">
-      <p>Cemetery:</p>
+      <p>المقبرة</p>
       <kendo-dropdownlist
         [data]="cemeteriesData"
         [defaultItem]="defaultCemeteryData"
@@ -98,8 +98,12 @@
   </div>
 </div>
 
-<button kendoButton (click)="addCemeteryForVolunteer()">Add</button>
+<button kendoButton (click)="addCemeteryForVolunteer()">اضافة مقبرة</button>
 
-<kendo-grid [data]="cemeteryObjects">
-  <kendo-grid-column field="cemeteryId" title="Cemetery ID"></kendo-grid-column>
-</kendo-grid>
+<ng-container *ngIf="cemeteryObjects && cemeteryObjects.length > 0">
+  <kendo-grid [data]="cemeteryObjects">
+    <kendo-grid-column field="RegionName" title="المنطقة"></kendo-grid-column>
+    <kendo-grid-column field="CityName" title="المدينة"></kendo-grid-column>
+    <kendo-grid-column field="CemeteryName" title="المقبرة"></kendo-grid-column>
+  </kendo-grid>
+</ng-container>

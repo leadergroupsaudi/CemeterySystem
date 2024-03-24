@@ -5,11 +5,17 @@ import { CemeteryDto, CityDto, DistrictDto, LookUpsServiceProxy, RegionDto, Volu
 import { SVGIcon, folderIcon } from "@progress/kendo-svg-icons";
 import { defaultUrlMatcher } from '@angular/router';
 interface ICemeteryObject {
-  cemeteryId: string;
+  cemeteryId: string,
+  CemeteryName: string;
+  RegionName: string,
+  CityName: string
 }
 
 export class CemeteryObject implements ICemeteryObject {
   cemeteryId: string;
+  CemeteryName: string;
+  RegionName: string;
+  CityName: string;
 }
 @Component({
   selector: 'app-volunteer',
@@ -29,9 +35,9 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   volunteerSelectedDistrict: DistrictDto;
   isDisabledVolunteerCity = true;
   isDisabledVolunteerDistrict = true;
-  defaultVolunteerRegion = { id: null, nameAr: "Select Region" };
-  defaultVolunteerCity = { id: null, nameAr: "Select City" };
-  defaultVolunteerDistrict = { id: null, nameAr: "Select District" };
+  defaultVolunteerRegion = { id: null, nameAr: "اختر المنطقة" };
+  defaultVolunteerCity = { id: null, nameAr: "اختر المدينة" };
+  defaultVolunteerDistrict = { id: null, nameAr: "اختر الحي" };
 
 
   cemeteryRegions: RegionDto[] = [];
@@ -42,9 +48,9 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   selectedCemeteryData: CemeteryDto;
   isDisabledCemeteryCity = true;
   isDisabledCemeteryData = true;
-  defaultCemeteryRegion = { id: null, nameAr: "Select Region" };
-  defaultCemeteryCity = { id: null, nameAr: "Select City" };
-  defaultCemeteryData = { id: null, nameAr: "Select Cemetery" };
+  defaultCemeteryRegion = { id: null, nameAr: "اختر المنطقة" };
+  defaultCemeteryCity = { id: null, nameAr: "اختر المدينة" };
+  defaultCemeteryData = { id: null, nameAr: "اختر المقبرة" };
   cemeteryObjects: CemeteryObject[] = [];
 
   constructor(injector: Injector,
@@ -147,7 +153,12 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
     console.log(this.cemeteryObjects);
     if (this.selectedCemeteryData.id && !this.cemeteryObjects.find(obj => obj.cemeteryId == this.selectedCemeteryData.id)) {
       {
-        this.cemeteryObjects.push({ cemeteryId: this.selectedCemeteryData.id });
+        this.cemeteryObjects.push({
+          cemeteryId: this.selectedCemeteryData.id,
+          CemeteryName: this.selectedCemeteryData.nameAr,
+          RegionName: this.cemeterySelectedRegion.nameAr,
+          CityName: this.cemeterySelectedCity.nameAr
+        });
         this.selectedCemeteryData.id = null;
       }
     }
