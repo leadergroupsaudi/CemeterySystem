@@ -1,85 +1,105 @@
-<!-- 
- <div class="container">
-  <h2 >Volunteer Registration</h2>
-  <div class="form-group">
-    <label for="regionSelect">Region:</label>
-    <select id="regionSelect" class="form-control" [(ngModel)]="selectedRegion" (change)="onRegionChange()">
-      <option *ngFor="let region of regions" [value]="region.id">{{ region.nameAr }}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="citySelect">City:</label>
-    <select id="citySelect" class="form-control" [(ngModel)]="selectedCity" (change)="onCityChange()">
-      <option *ngFor="let city of cities" [value]="city.id">{{ city.nameAr }}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="districtSelect">District:</label>
-    <select id="districtSelect" class="form-control" [(ngModel)]="selectedDistrict">
-      <option *ngFor="let district of districts" [value]="district.id">{{ district.nameAr }}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="cemeterySelect">Cemetery:</label>
-    <select class="form-control" id="cemeterySelect" [(ngModel)]="selectedCemetery">
-      <option *ngFor="let cemetery of cemeteries" [value]="cemetery.id">{{ cemetery.nameAr }}</option>
-    </select>
-  </div>
+<div class="col-xs-12 col-sm-6 example-col">
+  <kendo-floatinglabel text="Name">
+    <kendo-textbox
+      [style.width.px]="200"
+      [clearButton]="true"
+      [(ngModel)]="volunteerName"
+    ></kendo-textbox>
+  </kendo-floatinglabel>
 </div>
- -->
 
- <div class="container">
-  <h2>Volunteer Registration</h2>
-  <div class="form-group">
-    <label for="regionSelect">Region:</label>
-    <kendo-dropdownlist 
-    id="regionSelect" 
-    [data]="regions" 
-    textField="nameAr" 
-    valueField="id"
-    [(ngModel)]="selectedRegion" 
-    (valueChange)="onRegionChange()">
-    </kendo-dropdownlist>
-  </div>
+<div class="col-xs-12 col-sm-6 example-col">
+  <kendo-floatinglabel text="Phone Number">
+    <kendo-textbox
+      [style.width.px]="200"
+      [clearButton]="true"
+      [(ngModel)]="volunteerPhoneNumber"
+    ></kendo-textbox>
+  </kendo-floatinglabel>
+</div>
 
-  <div class="form-group">
-    <label for="citySelect">City:</label>
-    <kendo-dropdownlist
-     id="citySelect" 
-     [data]="cities" 
-     textField="nameAr" 
-     valueField="id"
-    [(ngModel)]="selectedCity" 
-    (valueChange)="onCityChange()"
-    >
-    </kendo-dropdownlist>
-  </div>
-
-  <div class="form-group">
-    <label for="districtSelect">District:</label>
-    <kendo-dropdownlist 
-    id="districtSelect" 
-    [data]="districts" 
-    textField="nameAr" 
-    valueField="id"
-    [(ngModel)]="selectedDistrict">
-    </kendo-dropdownlist>
-  </div>
-
-  <div class="form-group">
-    <label for="cemeterySelect">Cemetery:</label>
-    <kendo-dropdownlist
-     id="cemeterySelect" 
-     [data]="cemeteries" 
-     textField="nameAr" 
-     valueField="id"
-    [(ngModel)]="selectedCemetery">
-    </kendo-dropdownlist>
+<div class="container-fluid example-wrapper">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>Region:</p>
+      <kendo-dropdownlist
+        [data]="volunteerRegions"
+        [defaultItem]="defaultVolunteerRegion"
+        [value]="volunteerSelectedRegion"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleVolunteerRegionChange($event)"
+      ></kendo-dropdownlist>
+    </div>
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>City:</p>
+      <kendo-dropdownlist
+        [data]="volunteerCities"
+        [disabled]="isDisabledVolunteerCity"
+        [defaultItem]="defaultVolunteerCity"
+        [value]="volunteerSelectedCity"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleVolunteerCityChange($event)"
+      ></kendo-dropdownlist>
+    </div>
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>District:</p>
+      <kendo-dropdownlist
+        [data]="volunteerDistricts"
+        [defaultItem]="defaultVolunteerDistrict"
+        [disabled]="isDisabledVolunteerDistrict"
+        [value]="volunteerSelectedDistrict"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleVolunteerDistrictChange($event)"
+      ></kendo-dropdownlist>
+    </div>
   </div>
 </div>
 
+<div class="container-fluid example-wrapper">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>Region:</p>
+      <kendo-dropdownlist
+        [data]="cemeteryRegions"
+        [defaultItem]="defaultCemeteryRegion"
+        [value]="cemeterySelectedRegion"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleCemeteryRegionChange($event)"
+      ></kendo-dropdownlist>
+    </div>
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>City:</p>
+      <kendo-dropdownlist
+        [data]="cemeteryCities"
+        [disabled]="isDisabledCemeteryCity"
+        [defaultItem]="defaultCemeteryCity"
+        [value]="cemeterySelectedCity"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleCemeteryCityChange($event)"
+      ></kendo-dropdownlist>
+    </div>
+    <div class="col-xs-12 col-sm-4 example-col">
+      <p>Cemetery:</p>
+      <kendo-dropdownlist
+        [data]="cemeteriesData"
+        [defaultItem]="defaultCemeteryData"
+        [disabled]="isDisabledCemeteryData"
+        [value]="selectedCemeteryData"
+        textField="nameAr"
+        valueField="id"
+        (valueChange)="handleCemeteryChange($event)"
+      ></kendo-dropdownlist>
+    </div>
+  </div>
+</div>
 
+<button kendoButton (click)="addCemeteryForVolunteer()">Add</button>
 
+<kendo-grid [data]="cemeteryObjects">
+  <kendo-grid-column field="cemeteryId" title="Cemetery ID"></kendo-grid-column>
+</kendo-grid>

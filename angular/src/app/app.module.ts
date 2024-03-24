@@ -40,6 +40,10 @@ import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { ButtonModule } from '@progress/kendo-angular-buttons';
+import { TextBoxModule } from '@progress/kendo-angular-inputs';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 
 @NgModule({
@@ -88,6 +92,10 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
         SharedModule,
         NgxPaginationModule,
         DropDownsModule,
+        LabelModule,
+        ButtonModule,
+        TextBoxModule,
+        GridModule,
     ],
     providers: []
 })

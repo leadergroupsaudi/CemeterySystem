@@ -28,6 +28,7 @@
     "@progress/kendo-angular-common": "15.3.0",
     "@progress/kendo-angular-dialog": "15.3.0",
     "@progress/kendo-angular-dropdowns": "15.3.0",
+    "@progress/kendo-angular-grid": "15.3.0",
     "@progress/kendo-angular-icons": "15.3.0",
     "@progress/kendo-angular-inputs": "15.3.0",
     "@progress/kendo-angular-intl": "15.3.0",
@@ -36,7 +37,7 @@
     "@progress/kendo-angular-navigation": "15.3.0",
     "@progress/kendo-angular-popup": "15.3.0",
     "@progress/kendo-angular-treeview": "15.3.0",
-    "@progress/kendo-drawing": "^1.17.2",
+    "@progress/kendo-drawing": "^1.19.0",
     "@progress/kendo-licensing": "^1.0.2",
     "@progress/kendo-svg-icons": "^2.0.0",
     "@progress/kendo-theme-default": "^7.2.0",
@@ -55,7 +56,15 @@
     "sweetalert2": "^11.10.1",
     "ts-helpers": "^1.1.2",
     "tslib": "^2.6.2",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.2",
+    "@progress/kendo-data-query": "^1.0.0",
+    "@progress/kendo-angular-dateinputs": "15.3.0",
+    "@progress/kendo-angular-layout": "15.3.0",
+    "@progress/kendo-angular-excel-export": "15.3.0",
+    "@progress/kendo-angular-pdf-export": "15.3.0",
+    "@progress/kendo-angular-utils": "15.3.0",
+    "@progress/kendo-angular-spreadsheet": "15.3.0",
+    "@progress/kendo-angular-progressbar": "15.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.2",

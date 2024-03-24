@@ -4031,7 +4031,7 @@ export interface IUserLoginInfoDto {
 }
 
 export class VolunteerInput implements IVolunteerInput {
-    id: string;
+    id: string | undefined;
     phone: string | undefined;
     nameAr: string | undefined;
     districtId: number;
@@ -4090,7 +4090,7 @@ export class VolunteerInput implements IVolunteerInput {
 }
 
 export interface IVolunteerInput {
-    id: string;
+    id: string | undefined;
     phone: string | undefined;
     nameAr: string | undefined;
     districtId: number;

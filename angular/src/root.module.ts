@@ -21,6 +21,10 @@ import { AppInitializer } from './app-initializer';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { GridModule } from '@progress/kendo-angular-grid';
+
+
 
 
 
@@ -49,6 +53,8 @@ export function getCurrentLanguage(): string {
     DropDownsModule,
     ButtonsModule,
     DialogsModule,
+    LabelModule,
+    GridModule,
   ],
   declarations: [RootComponent],
   providers: [
