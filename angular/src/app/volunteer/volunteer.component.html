@@ -1,5 +1,6 @@
-
+<!-- 
  <div class="container">
+  <h2 >Volunteer Registration</h2>
   <div class="form-group">
     <label for="regionSelect">Region:</label>
     <select id="regionSelect" class="form-control" [(ngModel)]="selectedRegion" (change)="onRegionChange()">
@@ -20,4 +21,65 @@
       <option *ngFor="let district of districts" [value]="district.id">{{ district.nameAr }}</option>
     </select>
   </div>
+
+  <div class="form-group">
+    <label for="cemeterySelect">Cemetery:</label>
+    <select class="form-control" id="cemeterySelect" [(ngModel)]="selectedCemetery">
+      <option *ngFor="let cemetery of cemeteries" [value]="cemetery.id">{{ cemetery.nameAr }}</option>
+    </select>
+  </div>
 </div>
+ -->
+
+ <div class="container">
+  <h2>Volunteer Registration</h2>
+  <div class="form-group">
+    <label for="regionSelect">Region:</label>
+    <kendo-dropdownlist 
+    id="regionSelect" 
+    [data]="regions" 
+    textField="nameAr" 
+    valueField="id"
+    [(ngModel)]="selectedRegion" 
+    (valueChange)="onRegionChange()">
+    </kendo-dropdownlist>
+  </div>
+
+  <div class="form-group">
+    <label for="citySelect">City:</label>
+    <kendo-dropdownlist
+     id="citySelect" 
+     [data]="cities" 
+     textField="nameAr" 
+     valueField="id"
+    [(ngModel)]="selectedCity" 
+    (valueChange)="onCityChange()"
+    >
+    </kendo-dropdownlist>
+  </div>
+
+  <div class="form-group">
+    <label for="districtSelect">District:</label>
+    <kendo-dropdownlist 
+    id="districtSelect" 
+    [data]="districts" 
+    textField="nameAr" 
+    valueField="id"
+    [(ngModel)]="selectedDistrict">
+    </kendo-dropdownlist>
+  </div>
+
+  <div class="form-group">
+    <label for="cemeterySelect">Cemetery:</label>
+    <kendo-dropdownlist
+     id="cemeterySelect" 
+     [data]="cemeteries" 
+     textField="nameAr" 
+     valueField="id"
+    [(ngModel)]="selectedCemetery">
+    </kendo-dropdownlist>
+  </div>
+</div>
+
+
+
