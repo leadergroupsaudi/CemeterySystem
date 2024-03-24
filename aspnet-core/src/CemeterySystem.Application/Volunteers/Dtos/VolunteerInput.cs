@@ -7,7 +7,7 @@ using Abp.Application.Services.Dto;
 
 namespace CemeterySystem.Volunteers.Dto
 {
-    public class VolunteerInput : EntityDto<Guid>
+    public class VolunteerInput : EntityDto<Guid?>
     {
         public string Phone { get; set; }
         public string NameAr { get; set; }
