@@ -23,6 +23,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+
 
 
 
@@ -55,6 +57,7 @@ export function getCurrentLanguage(): string {
     DialogsModule,
     LabelModule,
     GridModule,
+    InputsModule,
   ],
   declarations: [RootComponent],
   providers: [

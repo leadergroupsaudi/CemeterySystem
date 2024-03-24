@@ -1947,6 +1947,14 @@
     "@progress/kendo-draggable" "^3.0.2"
     tslib "^2.3.1"
 
+"@progress/kendo-angular-upload@15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-angular-upload/-/kendo-angular-upload-15.3.0.tgz#9e0eb8f0da3b87a0a12e829aa9d14a3d54ca995a"
+  integrity sha512-qNtaReoSkqoJDTNUwDPdDYcck996MeQOw7WqLCvbxICljSqGXEyDrYuFfkXkS/R6vnKmyn/xDrIxjOWkpyeusA==
+  dependencies:
+    "@progress/kendo-angular-schematics" "15.3.0"
+    tslib "^2.3.1"
+
 "@progress/kendo-angular-utils@15.3.0":
   version "15.3.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-angular-utils/-/kendo-angular-utils-15.3.0.tgz#bc3da658dbaa5cd723e3fcea3715bc18c8177126"
@@ -1997,7 +2005,7 @@
   resolved "https://registry.yarnpkg.com/@progress/kendo-draggable/-/kendo-draggable-3.0.2.tgz#d0ce83a466db470abc515fdf030b6094749e8156"
   integrity sha512-B5bR1bEtLZ4i0eCtbT1umem3w9dC82QZ8wJ9/MMjcS0/luBiARnIacRM69b0PYN+uESztBuzKrrTpW70FCT47A==
 
-"@progress/kendo-drawing@^1.19.0":
+"@progress/kendo-drawing@^1.17.2", "@progress/kendo-drawing@^1.19.0":
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/@progress/kendo-drawing/-/kendo-drawing-1.19.1.tgz#9357675f86966bbd1c89af9f7522272ea37e89f3"
   integrity sha512-txk5UiksL0Bo7qkuAlOlXOD9HbHUDWX+y4L+NZUSF9+LAKeemibo2aAm5zKv+LlImwik17e6FDKvziZ5xafSUw==
