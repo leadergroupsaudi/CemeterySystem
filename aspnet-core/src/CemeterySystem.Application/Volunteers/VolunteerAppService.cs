@@ -24,6 +24,14 @@ namespace CemeterySystem.Volunteers
         {
             if (isAcceptedTermsAndConditions)
             {
+                if(volunteer.NameAr == null)
+                {
+                    throw new UserFriendlyException("يجب اضافة اسم المتطوع");
+                }
+                if(volunteer.Phone is null)
+                {
+                    throw new UserFriendlyException("يجب اضافة رقم الهاتف");
+                }
                 Volunteer volunteerEntity = new Volunteer()
                 {
                     Id = Guid.NewGuid(),

@@ -3,7 +3,7 @@ import { guid } from '@progress/kendo-angular-common';
 import { AppComponentBase } from '@shared/app-component-base';
 import { CemeteryDto, CityDto, DistrictDto, LookUpsServiceProxy, RegionDto, VolunteerInput, VolunteerOrderInput, VolunteerServiceProxy } from '@shared/service-proxies/service-proxies';
 import { SVGIcon, folderIcon } from "@progress/kendo-svg-icons";
-import { defaultUrlMatcher } from '@angular/router';
+
 interface ICemeteryObject {
   cemeteryId: string,
   CemeteryName: string;
@@ -52,6 +52,9 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   defaultCemeteryCity = { id: null, nameAr: "اختر المدينة" };
   defaultCemeteryData = { id: null, nameAr: "اختر المقبرة" };
   cemeteryObjects: CemeteryObject[] = [];
+
+  isAcceptedTermsAndConditions: boolean = false;
+  successMessageVisible: boolean = false;
 
   constructor(injector: Injector,
     private VolunteerService: VolunteerServiceProxy,
@@ -151,7 +154,8 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   addCemeteryForVolunteer(): void {
     console.log(this.selectedCemeteryData.id);
     console.log(this.cemeteryObjects);
-    if (this.selectedCemeteryData.id && !this.cemeteryObjects.find(obj => obj.cemeteryId == this.selectedCemeteryData.id)) {
+    if (this.selectedCemeteryData.id && !this.cemeteryObjects.find(
+      obj => obj.cemeteryId == this.selectedCemeteryData.id)) {
       {
         this.cemeteryObjects.push({
           cemeteryId: this.selectedCemeteryData.id,
@@ -162,7 +166,27 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
         this.selectedCemeteryData.id = null;
       }
     }
-    console.log(this.cemeteryObjects);
+  }
+
+  addVolunteer(): void {
+    console.log(this.volunteerSelectedDistrict.id);
+    const volunteerData = new VolunteerInput();
+    volunteerData.id = undefined;
+    volunteerData.nameAr = this.volunteerName;
+    volunteerData.phone = this.volunteerPhoneNumber;
+    volunteerData.districtId = this.volunteerSelectedDistrict.id;
+    const volunteerOrderInputs: VolunteerOrderInput[] = [];
+    for (const cemeteryObject of this.cemeteryObjects) {
+      const volunteerOrderInput = new VolunteerOrderInput();
+      volunteerOrderInput.cemeratyId = cemeteryObject.cemeteryId;
+      volunteerOrderInputs.push(volunteerOrderInput);
+    }
+    volunteerData.volunteerOrderInputs = volunteerOrderInputs;
+    console.log(volunteerData);
+    this.VolunteerService.createVolunteer(this.isAcceptedTermsAndConditions, volunteerData)
+      .subscribe(() => {
+      });
+    this.successMessageVisible = true;
   }
 
 }

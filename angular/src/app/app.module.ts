@@ -44,6 +44,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { TextBoxModule } from '@progress/kendo-angular-inputs';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { InputsModule } from '@progress/kendo-angular-inputs'
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
         ButtonModule,
         TextBoxModule,
         GridModule,
+        InputsModule,
     ],
     providers: []
 })

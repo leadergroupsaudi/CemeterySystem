@@ -107,3 +107,25 @@
     <kendo-grid-column field="CemeteryName" title="المقبرة"></kendo-grid-column>
   </kendo-grid>
 </ng-container>
+
+<div>
+  <kendo-label
+    class="k-checkbox-label"
+    [for]="isAcceptedTermsAndConditions"
+    text="اوافق على جميع الشروط والاحكام المتعلقة بتسجيل المتطوعين لصلاة الجنازة التطوعية"
+  ></kendo-label>
+  <input
+    type="checkbox"
+    [(ngModel)]="isAcceptedTermsAndConditions"
+    kendoCheckBox
+  />
+</div>
+
+<div class="col-xs-12 col-sm-6 example-col">
+  <p>
+    <button kendoButton (click)="addVolunteer()">Add Volunteer</button>
+  </p>
+  <div *ngIf="successMessageVisible" class="success-message">
+    Volunteer added successfully!
+  </div>
+</div>
