@@ -1,0 +1,17 @@
+﻿global using Abp.Domain.Entities;
+global using CemeterySystem.Entities;
+global using CemeterySystem.LookUps.Dto;
+global using CemeterySystem.Regions.Dtos;
+global using System;
+global using System.Collections.Generic;
+global using System.Threading.Tasks;
+global using System.Linq;
+global using System.Text;
+global using Abp.Application.Services.Dto;
+global using System.ComponentModel.DataAnnotations;
+global using CemeterySystem.Citys.Dtos;
+global using CemeterySystem.Districts.Dtos;
+global using AutoMapper;
+global using Abp.Domain.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using System.Text.RegularExpressions;
