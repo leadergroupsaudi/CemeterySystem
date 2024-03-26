@@ -2064,12 +2064,23 @@
   resolved "https://registry.yarnpkg.com/@progress/kendo-svg-icons/-/kendo-svg-icons-2.3.0.tgz#3926a0b39994a296c587d84144cf806739ab8a5d"
   integrity sha512-VB4x1o6eVoYcCgTDBMkV88giGXsDlyCEJAMFLd9x99oJlmufx4KC6/bzehFn3CXdTcvhw0ONlTm3H8gM9ZH6JQ==
 
+"@progress/kendo-theme-bootstrap@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-theme-bootstrap/-/kendo-theme-bootstrap-7.2.1.tgz#c82a3d5b776d5c41074aaac544b00539dbe00399"
+  integrity sha512-lQcx6z9zKxtXwR5BtvSe4ZPs/TWxWzNNzvyh7ke5EekanWU8q1AY+7wntM6q6D7haWBdbAtqe0odmUiSaG2C8w==
+  dependencies:
+    "@progress/kendo-svg-icons" "2.1.0"
+    "@progress/kendo-theme-core" "7.2.1"
+    "@progress/kendo-theme-default" "7.2.1"
+    "@progress/kendo-theme-utils" "7.2.1"
+    bootstrap "5.2.1"
+
 "@progress/kendo-theme-core@7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@progress/kendo-theme-core/-/kendo-theme-core-7.2.1.tgz#0dedd32dd06a5f3821f68c4e5ccdda1938822676"
   integrity sha512-fv6ELPjmQWw5p7ksv96RIiSWMQKenXdkK6b96vSakoQcexR/4oKDgbEXnApxeLgTUimh8Hp8M+6JIoZm+EQhyA==
 
-"@progress/kendo-theme-default@^7.2.0":
+"@progress/kendo-theme-default@7.2.1", "@progress/kendo-theme-default@^7.2.0":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@progress/kendo-theme-default/-/kendo-theme-default-7.2.1.tgz#f84d25d0bdbb239a6a70b9964c8577db7dca6edf"
   integrity sha512-WUMg+GZKpP37WL0aeGRi3i8vNmfEJdb5nHVBWAZeuEi/AS8cycVOCwcdDK4NywK9bUI/I0eUvLToxydLOHv6Pg==
@@ -3070,6 +3081,11 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
+
+bootstrap@5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.1.tgz#45f97ff05cbe828bad807b014d8425f3aeb8ec3a"
+  integrity sha512-UQi3v2NpVPEi1n35dmRRzBJFlgvWHYwyem6yHhuT6afYF+sziEt46McRbT//kVXZ7b1YUYEVGdXEH74Nx3xzGA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

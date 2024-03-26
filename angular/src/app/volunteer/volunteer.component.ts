@@ -26,6 +26,8 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   folderSVG: SVGIcon = folderIcon;
   volunteerName: string | null = null;
   volunteerPhoneNumber: string | null = null;
+  volunteerNameInvalid: boolean = false;
+  PhoneNumberInvalid: boolean = false;
 
   volunteerRegions: RegionDto[];
   volunteerSelectedRegion: RegionDto;
@@ -35,9 +37,9 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   volunteerSelectedDistrict: DistrictDto;
   isDisabledVolunteerCity = true;
   isDisabledVolunteerDistrict = true;
-  defaultVolunteerRegion = { id: null, nameAr: "اختر المنطقة" };
-  defaultVolunteerCity = { id: null, nameAr: "اختر المدينة" };
-  defaultVolunteerDistrict = { id: null, nameAr: "اختر الحي" };
+  defaultVolunteerRegion = { id: null, nameAr: this.l("ChooseRegion") };
+  defaultVolunteerCity = { id: null, nameAr: this.l("ChooseCity") };
+  defaultVolunteerDistrict = { id: null, nameAr: this.l("ChooseDistrict") };
 
 
   cemeteryRegions: RegionDto[] = [];
@@ -48,13 +50,15 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   selectedCemeteryData: CemeteryDto;
   isDisabledCemeteryCity = true;
   isDisabledCemeteryData = true;
-  defaultCemeteryRegion = { id: null, nameAr: "اختر المنطقة" };
-  defaultCemeteryCity = { id: null, nameAr: "اختر المدينة" };
-  defaultCemeteryData = { id: null, nameAr: "اختر المقبرة" };
+  defaultCemeteryRegion = { id: null, nameAr: this.l("ChooseRegion") };
+  defaultCemeteryCity = { id: null, nameAr: this.l("ChooseCity") };
+  defaultCemeteryData = { id: null, nameAr: this.l("ChooseCemetery") };
   cemeteryObjects: CemeteryObject[] = [];
 
   isAcceptedTermsAndConditions: boolean = false;
   successMessageVisible: boolean = false;
+  language = abp.localization.currentLanguage.name
+  isArabic = this.language === 'ar';
 
   constructor(injector: Injector,
     private VolunteerService: VolunteerServiceProxy,
@@ -63,6 +67,7 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.language)
     this.LookUpService.getRegions().subscribe((result: RegionDto[]) => {
       console.log(result);
       this.volunteerRegions = result;
@@ -152,24 +157,60 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
   }
 
   addCemeteryForVolunteer(): void {
-    console.log(this.selectedCemeteryData.id);
-    console.log(this.cemeteryObjects);
-    if (this.selectedCemeteryData.id && !this.cemeteryObjects.find(
-      obj => obj.cemeteryId == this.selectedCemeteryData.id)) {
-      {
-        this.cemeteryObjects.push({
-          cemeteryId: this.selectedCemeteryData.id,
-          CemeteryName: this.selectedCemeteryData.nameAr,
-          RegionName: this.cemeterySelectedRegion.nameAr,
-          CityName: this.cemeterySelectedCity.nameAr
-        });
-        this.selectedCemeteryData.id = null;
+    if (!this.selectedCemeteryData) {
+      this.message.info(this.l("YouHaveToSelectACemeteryToAdd"));
+    }
+    else {
+      if (this.selectedCemeteryData.id && !this.cemeteryObjects.find(
+        obj => obj.cemeteryId == this.selectedCemeteryData.id)) {
+        {
+          this.cemeteryObjects.push({
+            cemeteryId: this.selectedCemeteryData.id,
+            CemeteryName: this.selectedCemeteryData.nameAr,
+            RegionName: this.cemeterySelectedRegion.nameAr,
+            CityName: this.cemeterySelectedCity.nameAr
+          });
+          this.selectedCemeteryData.id = null;
+        }
+      }
+      else {
+        this.message.info(this.l("CantAddSameCemeteryTwice"))
       }
     }
   }
 
   addVolunteer(): void {
-    console.log(this.volunteerSelectedDistrict.id);
+    if (this.validateVolunteer()) {
+      this.createVolunteer();
+    }
+  }
+
+  validateVolunteer(): boolean {
+    if (!this.volunteerName || this.volunteerName.length < 3) {
+      this.message.info(this.l("VolunteerNameRequired"));
+      this.volunteerNameInvalid = true;
+      return false;
+    }
+    if (!this.volunteerPhoneNumber) {
+      this.PhoneNumberInvalid = true;
+      this.message.info(this.l("PhoneNumberRequired"));
+      return false;
+    }
+    if (!this.volunteerSelectedDistrict || !this.volunteerSelectedDistrict.id) {
+      this.message.info(this.l("YouMustChooseYourDistrict"));
+      return false;
+    }
+    if (!this.isAcceptedTermsAndConditions) {
+      this.message.info(this.l("YouMustAgreeToTheTermsAndConditions"));
+      return false;
+    }
+    return true;
+  }
+
+
+
+
+  createVolunteer(): void {
     const volunteerData = new VolunteerInput();
     volunteerData.id = undefined;
     volunteerData.nameAr = this.volunteerName;
@@ -182,10 +223,8 @@ export class VolunteerComponent extends AppComponentBase implements OnInit {
       volunteerOrderInputs.push(volunteerOrderInput);
     }
     volunteerData.volunteerOrderInputs = volunteerOrderInputs;
-    console.log(volunteerData);
     this.VolunteerService.createVolunteer(this.isAcceptedTermsAndConditions, volunteerData)
-      .subscribe(() => {
-      });
+      .subscribe(() => { this.notify.info(this.l("RegisteredSuccessfully")) });
     this.successMessageVisible = true;
   }
 

@@ -1,0 +1,34 @@
+@import "~@progress/kendo-theme-bootstrap/dist/all.css";
+
+.rounded-blue-button {
+    border-radius: 20px;
+    background-color: #1f468a;
+    color: white;
+    /* padding: 10px 20px; */
+    border: none;
+    cursor: pointer;
+}
+
+.add-cemetery-button {
+    width: 200px;
+}
+
+.add-volunteer-button {
+    width: 250px;
+}
+
+.rounded-blue-button:hover {
+    background-color: darkblue;
+}
+
+.title {
+    color: #1f468a;
+    font: 20px;
+}
+
+.custom-card-title {
+    font-weight: bold;
+    font-size: 23px;
+    color: #1f468a;
+    margin-bottom: 12px;
+}
