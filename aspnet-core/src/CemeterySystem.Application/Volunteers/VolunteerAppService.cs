@@ -1,12 +1,9 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.UI;
-using AutoMapper;
 using CemeterySystem.Entities;
 using CemeterySystem.Volunteers.Dto;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CemeterySystem.Volunteers
@@ -22,36 +19,59 @@ namespace CemeterySystem.Volunteers
 
         public async Task<VolunteerInput> CreateVolunteer(VolunteerInput volunteer, bool isAcceptedTermsAndConditions)
         {
+            await CheckPhoneNumberExists(volunteer.Phone);
+
             if (isAcceptedTermsAndConditions)
             {
-                if(volunteer.NameAr == null)
-                {
-                    throw new UserFriendlyException("يجب اضافة اسم المتطوع");
-                }
-                if(volunteer.Phone is null)
-                {
-                    throw new UserFriendlyException("يجب اضافة رقم الهاتف");
-                }
-                Volunteer volunteerEntity = new Volunteer()
-                {
-                    Id = Guid.NewGuid(),
-                    Phone = volunteer.Phone,
-                    DistrictId = volunteer.DistrictId,
-                    NameAr = volunteer.NameAr
-                };
+                await ValidateVolunteerInput(volunteer);
 
-                // map VolunteerOrderInputs to VolunteerOrders
-                volunteerEntity.VolunteerOrders = ObjectMapper.Map<List<VolunteerOrder>>(volunteer.VolunteerOrderInputs);
-                volunteerEntity.VolunteerOrders.ForEach(order => order.VolunteerId = volunteerEntity.Id);
+                var volunteerEntity = MapVolunteerInputToEntity(volunteer);
+                volunteerEntity.VolunteerOrders = MapVolunteerOrderInputsToEntities(volunteer.VolunteerOrderInputs);
 
-                Guid volunteerId = await volunteerRepository.InsertAndGetIdAsync(volunteerEntity);
+                Guid volunteerId = await InsertVolunteerAsync(volunteerEntity);
                 volunteer.Id = volunteerId;
                 return volunteer;
             }
             else
             {
-                throw new UserFriendlyException("You must agree to the terms and conditions");
+                throw new UserFriendlyException(L("YouMustAgreeToTheTermsAndConditions"));
             }
+        }
+
+        private async Task CheckPhoneNumberExists(string phoneNumber)
+        {
+            var phoneNumberExists = await volunteerRepository.FirstOrDefaultAsync(v => v.Phone == phoneNumber);
+            if (phoneNumberExists != null)
+            {
+                throw new UserFriendlyException(L("VolunteerAlreadyAdded"));
+            }
+        }
+
+        private async Task ValidateVolunteerInput(VolunteerInput volunteer)
+        {
+            if (volunteer.NameAr == null)
+            {
+                throw new UserFriendlyException(L("VolunteerNameRequired"));
+            }
+            if (volunteer.Phone is null)
+            {
+                throw new UserFriendlyException(L("PhoneNumberRequired"));
+            }
+        }
+
+        private Volunteer MapVolunteerInputToEntity(VolunteerInput volunteer)
+        {
+            return ObjectMapper.Map<Volunteer>(volunteer);
+        }
+
+        private List<VolunteerOrder> MapVolunteerOrderInputsToEntities(List<VolunteerOrderInput> volunteerOrderInputs)
+        {
+            return ObjectMapper.Map<List<VolunteerOrder>>(volunteerOrderInputs);
+        }
+
+        private async Task<Guid> InsertVolunteerAsync(Volunteer volunteerEntity)
+        {
+            return await volunteerRepository.InsertAndGetIdAsync(volunteerEntity);
         }
     }
 
