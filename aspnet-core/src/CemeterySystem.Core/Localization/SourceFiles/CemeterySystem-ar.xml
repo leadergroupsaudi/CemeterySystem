@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ar">
+	<texts>
+		<text name="HomePage" value="الصفحة الرئيسية" />
+		<text name="About" value="حول" />
+		<text name="WelcomeMessage" value="مرحبًا بك في نظام المقابر!" />
+		<text name="FormIsNotValidMessage" value="النموذج غير صالح. يرجى التحقق وإصلاح الأخطاء." />
+		<text name="TenantNameCanNotBeEmpty" value="لا يمكن أن يكون اسم المستأجر فارغًا" />
+		<text name="InvalidUserNameOrPassword" value="اسم مستخدم أو كلمة مرور غير صالحة" />
+		<text name="ThereIsNoTenantDefinedWithName{0}" value="لا يوجد مستأجر محدد بالاسم {0}" />
+		<text name="TenantIsNotActive" value="المستأجر {0} غير نشط." />
+		<text name="UserIsNotActiveAndCanNotLogin" value="المستخدم {0} غير نشط ولا يمكن تسجيل الدخول." />
+		<text name="UserEmailIsNotConfirmedAndCanNotLogin">عنوان البريد الإلكتروني الخاص بك لم يتم تأكيده. لا يمكنك تسجيل الدخول.</text>
+		<text name="UserLockedOutMessage">تم قفل حساب المستخدم. يرجى المحاولة مرة أخرى في وقت لاحق.</text>
+		<text name="PleaseEnterLoginInformation" value="يرجى إدخال معلومات تسجيل الدخول" />
+		<text name="TenancyName" value="اسم المستأجر" />
+		<text name="UserNameOrEmail" value="اسم المستخدم أو البريد الإلكتروني" />
+		<text name="Password" value="كلمة المرور" />
+		<text name="ResetPassword" value="إعادة تعيين كلمة المرور" />
+		<text name="UpdatePassword" value="تحديث كلمة المرور" />
+		<text name="RememberMe" value="تذكرني" />
+		<text name="LogIn" value="تسجيل الدخول" />
+		<text name="LoginFailed" value="فشل تسجيل الدخول!" />
+		<text name="NameSurname" value="الاسم واللقب" />
+		<text name="UserName" value="اسم المستخدم" />
+		<text name="Name" value="الاسم" />
+		<text name="Surname" value="اللقب" />
+		<text name="EmailAddress" value="عنوان البريد الإلكتروني" />
+		<text name="Tenants" value="المستأجرون" />
+		<text name="SavedSuccessfully" value="تم الحفظ بنجاح" />
+		<text name="CreateNewTenant" value="إنشاء مستأجر جديد" />
+		<text name="AdminEmailAddress" value="عنوان البريد الإلكتروني للمسؤول" />
+		<text name="AdminPassword" value="كلمة مرور المسؤول" />
+		<text name="Save" value="حفظ" />
+		<text name="Cancel" value="إلغاء" />
+		<text name="TenantName_Regex_Description" value="يجب أن يتكون اسم المستأجر من حرفين على الأقل، يبدأ بحرف ويستمر بحروف، أرقام، شرطة أو شرطة سفلية." />
+		<text name="DefaultPasswordIs" value="كلمة المرور الافتراضية هي {0}" />
+		<text name="CanBeEmptyToLoginAsHost" value="يمكن أن تكون فارغة لتسجيل الدخول كمضيف." />
+		<text name="Register" value="تسجيل" />
+		<text name="OrLoginWith" value="أو تسجيل الدخول باستخدام" />
+		<text name="WaitingForActivationMessage" value="حسابك في انتظار تفعيله من قبل مسؤول النظام." />
+		<text name="TenantSelection" value="اختيار المستأجر" />
+		<text name="TenantSelection_Detail" value="يرجى اختيار أحد المستأجرين التالية." />
+		<text name="Logout" value="تسجيل الخروج" />
+		<text name="RegisterFormUserNameInvalidMessage">يرجى عدم إدخال عنوان بريد إلكتروني كاسم مستخدم.</text>
+		<text name="DatabaseConnectionString" value="سلسلة اتصال قاعدة البيانات" />
+		<text name="Users" value="المستخدمون" />
+		<text name="IsActive" value="نشط" />
+		<text name="FullName" value="الاسم الكامل" />
+		<text name="CreateNewUser" value="إنشاء مستخدم جديد" />
+		<text name="Yes" value="نعم" />
+		<text name="No" value="لا" />
+		<text name="Optional" value="اختياري" />
+		<text name="LeaveEmptyToSwitchToHost">اتركه فارغًا للتبديل إلى المضيف</text>
+		<text name="CurrentTenant">المستأجر الحالي</text>
+		<text name="NotSelected">غير محدد</text>
+		<text name="Change">تغيير</text>
+		<text name="ChangeTenant">تغيير المستأجر</text>
+		<text name="MultiLevelMenu">قائمة متعددة المستويات</text>
+		<text name="Back">رجوع</text>
+		<text name="SuccessfullyRegistered">تم التسجيل بنجاح</text>
+		<text name="WaitingForEmailActivation">يجب تفعيل عنوان بريدك الإلكتروني</text>
+		<text name="Roles">الأدوار</text>
+		<text name="DisplayName">الاسم المعروض</text>
+		<text name="Edit">تعديل</text>
+		<text name="Delete">حذف</text>
+		<text name="CreateNewRole">إنشاء دور جديد</text>
+		<text name="RoleName">اسم الدور</text>
+		<text name="Actions">الإجراءات</text>
+		<text name="CouldNotCompleteLoginOperation">تعذر إكمال عملية تسجيل الدخول. يرجى المحاولة مرة أخرى لاحقًا.</text>
+		<text name="CouldNotValidateExternalUser">تعذر التحقق من مستخدم خارجي</text>
+		<text name="EditRole">تعديل الدور</text>
+		<text name="EditTenant">تعديل المستأجر</text>
+		<text name="EditUser">تعديل المستخدم</text>
+		<text name="TenantIdIsNotActive{0}">معرّف المستأجر {0} غير نشط</text>
+		<text name="UnknownTenantId{0}">معرّف المستأجر {0} غير معروف</text>
+		<text name="ThisFieldIsRequired">هذا الحقل مطلوب</text>
+		<text name="PleaseWait">يرجى الانتظار...</text>
+		<text name="Administration">الإدارة</text>
+		<text name="ClearAll">مسح الكل</text>
+		<text name="ClearOthers">مسح الآخرين</text>
+		<text name="LabelOptions">خيارات العلامة</text>
+		<text name="Permissions">الصلاحيات</text>
+		<text name="RoleDescription">وصف الدور</text>
+		<text name="Refresh">تحديث</text>
+		<text name="Create">إنشاء</text>
+		<text name="UserDetails">تفاصيل المستخدم</text>
+		<text name="UserRoles">أدوار المستخدم</text>
+		<text name="ConfirmPassword">تأكيد كلمة المرور</text>
+		<text name="Version">الإصدار</text>
+		<text name="On">مُفعَّل</text>
+		<text name="Off">مُعطَّل</text>
+		<text name="AreYouSureWantToDelete">هل أنت متأكد من رغبتك في حذف {0}؟</text>
+		<text name="SuccessfullyDeleted">تم الحذف بنجاح</text>
+		<text name="StartTyping">ابدأ الكتابة</text>
+		<text name="Skins">السُّكِنات</text>
+		<text name="Settings">الإعدادات</text>
+		<text name="Filter">التصفية</text>
+		<text name="CurrentPassword">كلمة المرور الحالية</text>
+		<text name="NewPassword">كلمة المرور الجديدة</text>
+		<text name="ConfirmNewPassword">تأكيد كلمة المرور الجديدة</text>
+		<text name="PasswordsDoNotMatch">كلمتا المرور غير متطابقتين</text>
+		<text name="PasswordsMustBeAtLeast8CharactersContainLowercaseUppercaseNumber">يجب أن تكون كلمات المرور على الأقل 8 أحرف، تحتوي على حرف صغير وحرف كبير ورقم</text>
+		<text name="UserDeleteWarningMessage">سيتم حذف المستخدم {0}.</text>
+		<text name="RoleDeleteWarningMessage">سيتم حذف الدور {0} وإلغاء تعيينه من جميع المستخدمين المعينين.</text>
+		<text name="TenantDeleteWarningMessage">سيتم حذف المستأجر {0}.</text>
+		<text name="SearchWithThreeDot">البحث...</text>
+		<text name="PleaseEnterAtLeastNCharacter">الرجاء إدخال {0} حرف على الأقل</text>
+		<text name="PleaseEnterNoMoreThanNCharacter">الرجاء إدخال عدد لا يزيد عن {0} حرف</text>
+		<text name="InvalidEmailAddress">عنوان بريد إلكتروني غير صالح</text>
+		<text name="InvalidPattern">غير صالح</text>
+		<text name="PairsDoNotMatch">غير متطابق</text>
+		<text name="All">الكل</text>
+		<text name="TotalRecordsCount">الإجمالي: {0}</text>
+		<text name="Search">بحث</text>
+		<text name="Clear">مسح</text>
+		<text name="ResetPasswordStepOneInfo">1. أدخل كلمة المرور الخاصة بالمسؤول الخاص بك</text>
+		<text name="ResetPasswordStepTwoInfo">2. انسخ كلمة المرور العشوائية هذه حتى تتمكن من إرسالها إلى المستخدم</text>
+		<text name="UsersActivation">تفعيل المستخدمين</text>
+		<text name="VolunteerData">بينات المتطوع</text>
+		<text name="VolunteerName">اسم المتطوع</text>
+		<text name="PhoneNumber">رقم الهاتف</text>
+		<text name="VolunteerNameRequired">يرجي ادخال اسم المتطوع</text>
+		<text name="PhoneNumberRequired">يرجي ادخال رقم الهاتف</text>
+		<text name="Region">المنطقة</text>
+		<text name="City">المدينة</text>
+		<text name="District">الحي</text>
+		<text name="Cemetery">المقبرة</text>
+		<text name="AddCemetery">اضافة مقبرة</text>
+		<text name="AgreeToTermsAndConditions">اوافق على جميع الشروط والاحكام المتعلقة بتسجيل المتطوعين لصلاة الجنازة التطوعية</text>
+		<text name="RegisterVolunteer">تسجيل</text>
+		<text name="ChooseRegion">اختر المنطقة</text>
+		<text name="ChooseCity">اختر المدينة</text>
+		<text name="ChooseDistrict">اختر الحي</text>
+		<text name="ChooseCemetery">اختر المقبرة</text>
+		<!--<text name="YouMustFillYourName">اسم المتطوع مطلوب</text>
+		<text name="YouMustFillYourNumber">رقم المتطوع مطلوب</text>-->
+		<text name="YouMustChooseYourDistrict">يجب اختيار الحي للمتطوع</text>
+		<text name="YouMustAgreeToTheTermsAndConditions">يجب الموافقة على الشروط والاحكام قبل التسجيل</text>
+		<text name="CemeteryData">بيانات المقبرة</text>
+		<text name="RegisteredSuccessfully">تم تسجيل المتطوع بنجاح</text>
+		<text name="CantAddSameCemeteryTwice">لا يمكنك اضافة نفس المقبرة اكثر من مرة</text>
+		<text name="VolunteersRegistrationForFuneralPrayer">تسجيل المتطوعين لصلاة الجنازة</text>
+		<text name="YouHaveToSelectACemeteryToAdd">يجب عليك تحديد مقبرة للإضافة</text>
+	</texts>
+</localizationDictionary>

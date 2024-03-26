@@ -117,5 +117,31 @@
     <text name="ResetPasswordStepOneInfo">1. Enter your administrator password</text>
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
     <text name="UsersActivation">Users activation</text>
+	<text name="VolunteerData">Volunteer Data</text>
+	<text name="VolunteerName">Volunteer Name</text>
+	<text name="PhoneNumber">Phone Number</text>
+	<text name="VolunteerNameRequired">Volunteer name required</text>
+	<text name="PhoneNumberRequired">Phone number required</text>
+	<text name="Region">Region</text>
+	<text name="City">City</text>
+	<text name="District">District</text>
+	<text name="Cemetery">Cemetery</text>
+	<text name="AddCemetery">Add Cemetery</text>
+	<text name="AgreeToTermsAndConditions">I agree to all terms and conditions related to registering volunteers for the voluntary funeral prayer</text>
+	<text name="RegisterVolunteer">Register</text>
+	<text name="ChooseRegion">Choose Region</text>
+	<text name="ChooseCity">Choose City</text>
+	<text name="ChooseDistrict">Choose District</text>
+	<text name="ChooseCemetery">Choose Cemetery</text>
+	<text name="YouMustFillYourName">You must fill Your name</text>
+	<text name="YouMustFillYourNumber">You must fill your number</text>
+	<text name="YouMustChooseYourDistrict">You must choose a district</text>
+	<text name="YouMustAgreeToTheTermsAndConditions">You must agree to the terms and conditions</text>
+	<text name="CemeteryData">Cemetery Data</text>
+	<text name="RegisteredSuccessfully">Volunteer Registered Successfully</text>
+	<text name="CantAddSameCemeteryTwice">You can't add the same cemetery twice</text>
+	<text name="VolunteerAlreadyAdded">This volunteer is already registered</text>
+	<text name="VolunteersRegistrationForFuneralPrayer">Volunteers Registration for Funeral Prayer</text>
+	<text name="YouHaveToSelectACemeteryToAdd">You Have To Select A Cemetery To Add</text>
   </texts>
 </localizationDictionary>
