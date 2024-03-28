@@ -38,14 +38,14 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
-import { VolunteerComponent } from './volunteer/volunteer.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { TextBoxModule } from '@progress/kendo-angular-inputs';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { InputsModule } from '@progress/kendo-angular-inputs'
-
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { AppNavbarComponent } from './layout/appnavbar.component';
+// import { VolunteerComponent } from '../landing/volunteer/volunteer.component';
 
 @NgModule({
     declarations: [
@@ -76,7 +76,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs'
         SidebarLogoComponent,
         SidebarUserPanelComponent,
         SidebarMenuComponent,
-        VolunteerComponent
+
+        AppNavbarComponent,
     ],
     imports: [
         CommonModule,

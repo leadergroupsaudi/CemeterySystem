@@ -24,6 +24,8 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+// import { NavbarComponent } from 'landing/layout/navbar.component';
+// import { LandingComponent } from './landing/landing.component';
 
 
 
@@ -59,7 +61,10 @@ export function getCurrentLanguage(): string {
     GridModule,
     InputsModule,
   ],
-  declarations: [RootComponent],
+  declarations: [
+    RootComponent,
+    // NavbarComponent,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AbpHttpInterceptor, multi: true },
     {
@@ -76,4 +81,4 @@ export function getCurrentLanguage(): string {
   ],
   bootstrap: [RootComponent],
 })
-export class RootModule {}
+export class RootModule { }
