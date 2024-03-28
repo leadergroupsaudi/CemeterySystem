@@ -1,12 +1,4 @@
-﻿using Abp.Domain.Repositories;
-using CemeterySystem.Entities;
-using CemeterySystem.LookUps.Dto;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace CemeterySystem.LookUps
 {
     public class LookUpsAppService : CemeterySystemAppServiceBase, ILookUpsAppService
@@ -36,7 +28,7 @@ namespace CemeterySystem.LookUps
 
         public async Task<List<CityDto>> GetCities(int regionId)
         {
-            var query = await cityRepository.GetAll().Where(city => city.RegionId == regionId).ToListAsync();
+            var query = await cityRepository.GetAll().Where(city => city.Id == regionId).ToListAsync();
             var result = ObjectMapper.Map<List<CityDto>>(query);
             return result;
         }

@@ -1,4 +1,8 @@
-﻿namespace CemeterySystem.Regions
+﻿using Abp.Linq.Extensions;
+using Abp.UI;
+using System.Linq.Dynamic.Core;
+
+namespace CemeterySystem.Regions
 {
     public class RegionAppService : CemeterySystemAppServiceBase, IRegionAppService
     {
@@ -7,17 +11,29 @@
         {
             _regionRepository = regionRepository;
         }
-        public async Task<List<RegionDto>> GetAll()
+
+        public async Task<PagedResultDto<RegionDto>> GetRegion(GetRegionDto input)
         {
+            var filteredResult = _regionRepository.GetAllIncluding()
+               .WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
+               a => a.NameAr
+               .Contains(input.Filter));
             try
             {
-                var regions = await _regionRepository.GetAll().ToListAsync();
-                var result = ObjectMapper.Map<List<RegionDto>>(regions);
-                return result;
+                var pagedAndFilteredResult = await filteredResult
+                    .OrderBy(input.Sorting ?? "name desc").
+                    PageBy(input).
+                    ToListAsync();
+
+                var result = ObjectMapper.Map<List<RegionDto>>(pagedAndFilteredResult);
+                var totalCount = await filteredResult.CountAsync();
+
+                return new PagedResultDto<RegionDto>(totalCount, result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("", ex);
+
+                throw new UserFriendlyException("Invalid");
             }
         }
 
@@ -89,5 +105,6 @@
                 throw new Exception("",ex);
             }
         }
+
     }
 }

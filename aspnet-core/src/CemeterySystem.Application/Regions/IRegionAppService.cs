@@ -3,10 +3,10 @@ namespace CemeterySystem.Regions
 {
     public interface IRegionAppService
     {
-        Task<List<RegionDto>> GetAll();
-        Task<RegionDto> GetById(int input);
-        Task<Region> Create(RegionsDto input);
-        Task<Region> Update(RegionsDto input);
-        Task Delete(int input);
+        public Task<PagedResultDto<RegionDto>> GetRegion(GetRegionDto input);
+        public Task<RegionDto> GetById(int input);
+        public Task<Region> Create(RegionsDto input);
+        public Task<Region> Update(RegionsDto input);
+        public Task Delete(int input);
     }
 }
